@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group 'me.dipper'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation("com.navercorp.fixturemonkey:fixture-monkey-starter:0.4.3")
+    testImplementation("com.navercorp.fixturemonkey:fixture-monkey-javax-validation:0.4.3")
+
+
+    compileOnly("ch.qos.logback:logback-classic:1.2.9")
+    compileOnly("org.hibernate.validator:hibernate-validator:6.2.0.Final")
+    testImplementation("org.hibernate.validator:hibernate-validator:6.2.0.Final")
+    implementation("org.projectlombok:lombok:1.18.24")
+    annotationProcessor("org.projectlombok:lombok:1.18.24")
+    testImplementation("org.assertj:assertj-core:3.22.0")
+    testImplementation("org.projectlombok:lombok:1.18.24")
+    testAnnotationProcessor("org.projectlombok:lombok:1.18.24")
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
