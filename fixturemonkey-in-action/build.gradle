@@ -12,6 +12,7 @@ repositories {
 dependencies {
     testImplementation("com.navercorp.fixturemonkey:fixture-monkey-starter:0.4.3")
     testImplementation("com.navercorp.fixturemonkey:fixture-monkey-javax-validation:0.4.3")
+    testImplementation("com.navercorp.fixturemonkey:fixture-monkey-jackson:0.4.3")
 
 
     compileOnly("ch.qos.logback:logback-classic:1.2.9")
