@@ -1,6 +1,11 @@
 package me.dipper.rabbitmq;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.FanoutExchange;
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.Connection;
@@ -17,6 +22,21 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitConfig {
 
     private final RabbitMqProperty rabbitMqProperty;
+
+    @Bean
+    FanoutExchange exchange() {
+        return new FanoutExchange(rabbitMqProperty.getExchangeName());
+    }
+
+    @Bean
+    Queue queue() {
+        return new Queue(rabbitMqProperty.getQueueName());
+    }
+
+    @Bean
+    Binding binding(Queue queue, FanoutExchange exchange) {
+        return BindingBuilder.bind(queue).to(exchange);
+    }
 
     @Bean
     ConnectionFactory connectionFactory() {

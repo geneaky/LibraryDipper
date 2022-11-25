@@ -16,5 +16,7 @@ public class RabbitMqProperty {
     private final Integer port;
     private final String username;
     private final String password;
+    private final String exchangeName;
+    private final String queueName;
 }
 

@@ -1,5 +1,12 @@
+spring:
+  rabbitmq:
+    listener:
+      simple:
+        prefetch: 250
 rabbitmq:
   host: localhost
   port: 5672
   username: guest
   password: guest
+  exchangeName: chat1.exchange
+  queueName: chat1.queue

@@ -1,14 +1,15 @@
 package me.dipper.rabbitmq;
 
-import org.springframework.amqp.core.Message;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
+@Slf4j
 @Component
 public class RabbitConsumer {
 
-    @RabbitListener(queues = "chat1.queue")
+    @RabbitListener(queues = {"chat1.queue", "chat2.queue"})
     public void consumeMessage(final RabbitMessage message) {
-        System.out.println(message.getMessage());
+        log.info(message.getMessage());
     }
 }

@@ -1,0 +1,6 @@
+POST localhost:8080/v1/amqp/chat
+Content-Type: application/json
+
+{
+  "message": "비동기 호출 테스트"
+}
